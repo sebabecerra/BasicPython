@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Avanzado de Python</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .slide-container {
+            height: 100vh;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+        }
+        .slide {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .slide-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+        .author {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .interactive {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 10px 10px 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        .hidden {
+            display: none;
+        }
+        pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .fun-fact {
+            background-color: #fdebd0;
+            border-left: 5px solid #f39c12;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 0 10px 10px 0;
+        }
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        .code-output {
+            background-color: #f0f0f0;
+            border-left: 5px solid #27ae60;
+            padding: 10px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Slide de Bienvenida -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>Curso Avanzado de Python 🐍</h1>
+                <p class="author">Por Sebastian Becerra</p>
+                <p>Bienvenidos a este viaje profundo por el mundo de Python. Prepárense para sumergirse en los fundamentos y características avanzadas de este poderoso lenguaje de programación.</p>
+            </div>
+        </div>
+
+        <!-- Slide de Generadores -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>1. Características Avanzadas de Python</h2>
+                <h3>Generadores y Expresiones Generadoras</h3>
+                <p>Los generadores son funciones que producen una secuencia de resultados en lugar de calcular todo de una vez y devolver una sola vez. Son útiles para trabajar con secuencias grandes de datos sin usar mucha memoria.</p>
+                <div class="interactive">
+                    <button onclick="toggleCode('generators')">Mostrar/Ocultar Código</button>
+                    <pre id="generators" class="hidden">
+# Definición de un generador de números Fibonacci
+def fibonacci_generator():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+# Uso del generador
+fib = fibonacci_generator()
+for _ in range(10):
+    print(next(fib), end=' ')
+
+# Expresión generadora para crear una secuencia de cuadrados
+cuadrados = (x**2 for x in range(10))
+print("\nCuadrados:", list(cuadrados))
+                    </pre>
+                </div>
+                <h3>Decoradores</h3>
+                <p>Los decoradores son una forma de modificar o mejorar funciones o clases sin cambiar su código fuente. Son muy útiles para reutilizar código y aplicar patrones de diseño.</p>
+                <div class="interactive">
+                    <button onclick="toggleCode('decorators')">Mostrar/Ocultar Código</button>
+                    <pre id="decorators" class="hidden">
+# Definición de un decorador
+def mi_decorador(func):
+    def wrapper():
+        print("Algo está sucediendo antes de la función")
+        func()
+        print("Algo está sucediendo después de la función")
+    return wrapper
+
+# Uso del decorador
+@mi_decorador
+def saludo():
+    print("¡Hola, mundo!")
+
+saludo()
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide de Programación Orientada a Objetos Avanzada -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>2. Programación Orientada a Objetos Avanzada</h2>
+                <h3>Herencia Múltiple y MRO (Method Resolution Order)</h3>
+                <p>Python permite la herencia múltiple, donde una clase puede heredar de varias clases padre. El MRO define el orden en que se buscan los métodos en una jerarquía de clases.</p>
+                <div class="interactive">
+                    <button onclick="toggleCode('multiple_inheritance')">Mostrar/Ocultar Código</button>
+                    <pre id="multiple_inheritance" class="hidden">
+class A:
+    def quien_soy(self):
+        print("Soy A")
+
+class B(A):
+    def quien_soy(self):
+        print("Soy B")
+
+class C(A):
+    def quien_soy(self):
+        print("Soy C")
+
+class D(B, C):
+    pass
+
+d = D()
+d.quien_soy()  # Imprime "Soy B" debido al MRO
+print(D.mro())  # Muestra el orden de resolución de métodos
+                    </pre>
+                </div>
+                <h3>Métodos Mágicos (Dunder Methods)</h3>
+                <p>Los métodos mágicos, también conocidos como métodos dunder (double underscore), permiten definir comportamientos especiales para las clases, como la representación de objetos y la sobrecarga de operadores.</p>
+                <div class="interactive">
+                    <button onclick="toggleCode('dunder_methods')">Mostrar/Ocultar Código</button>
+                    <pre id="dunder_methods" class="hidden">
+class Libro:
+    def __init__(self, titulo, autor, paginas):
+        self.titulo = titulo
+        self.autor = autor
+        self.paginas = paginas
+
+    def __str__(self):
+        return f"{self.titulo} por {self.autor}"
+
+    def __len__(self):
+        return self.paginas
+
+    def __del__(self):
+        print(f"El libro {self.titulo} ha sido eliminado")
+
+libro = Libro("Python Avanzado", "Sebastian Becerra", 300)
+print(str(libro))
+print(len(libro))
+del libro
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide de Manejo Avanzado de Datos -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>3. Manejo Avanzado de Datos</h2>
+                <h3>Comprehensions</h3>
+                <p>Las comprehensions son una forma concisa de crear listas, diccionarios y conjuntos en Python, y permiten escribir código más limpio y eficiente.</p>
+                <div class="interactive">
+                    <button onclick="toggleCode('comprehensions')">Mostrar/Ocultar Código</button>
+                    <pre id="comprehensions" class="hidden">
+# List comprehension
+cuadrados = [x**2 for x in range(10)]
+print("Cuadrados:", cuadrados)
+
+# Dict comprehension
+cuadrados_dict = {x: x**2 for x in range(5)}
+print("Diccionario de cuadrados:", cuadrados_dict)
+
+# Set comprehension
+vocales_set = {letra for letra in "murcielago"}
+print("Set de vocales:", vocales_set)
+
+# Comprehension con condición
+pares = [x for x in range(20) if x % 2 == 0]
+print("Números pares:", pares)
+                    </pre>
+                </div>
+                <h3>Módulo Collections</h3>
+                <p>El módulo collections proporciona alternativas especializadas a los contenedores integrados de Python, como defaultdict, Counter y namedtuple.</p>
+                <div class="interactive">
+                    <button onclick="toggleCode('collections_module')">Mostrar/Ocultar Código</button>
+                    <pre id="collections_module" class="hidden">
+from collections import Counter, defaultdict, namedtuple
+
+# Counter
+texto = "mississippi"
+print(Counter(texto))
+
+# defaultdict
+d = defaultdict(list)
+d['frutas'].append('manzana')
+d['frutas'].append('banana')
+print(dict(d))
+
+# namedtuple
+Punto = namedtuple('Punto', ['x', 'y'])
+p = Punto(11, y=22)
+print(p.x, p.y)
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide de Concurrencia y Paralelismo -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>4. Concurrencia y Paralelismo</h2>
+                <h3>Threading y Multiprocessing</h3>
+                <p>Python ofrece módulos para trabajar con hilos y procesos múltiples, permitiendo la ejecución concurrente y paralela de código. Esto es útil para tareas que requieren mucho tiempo de CPU o I/O.</p>
+                <div class="interactive">
+                    <button onclick="toggleCode('concurrency')">Mostrar/Ocultar Código</button>
+                    <pre id="concurrency" class="hidden">
+import threading
+import multiprocessing
+import time
+
+def worker(num):
+    print(f'Trabajador {num}')
+    time.sleep(1)
+    print(f'Trabajador {num} terminado')
+
+# Threading
+threads = []
+for i in range(5):
+    t = threading.Thread(target=worker, args=(i,))
+    threads.append(t)
+    t.start()
+
+for t in threads:
+    t.join()
+
+# Multiprocessing
+if __name__ == '__main__':
+    processes = []
+    for i in range(5):
+        p = multiprocessing.Process(target=worker, args=(i,))
+        processes.append(p)
+        p.start()
+
+    for p in processes:
+        p.join()
+                    </pre>
+                </div>
+                <h3>Asyncio</h3>
+                <p>Asyncio es un módulo para escribir código concurrente usando la sintaxis async/await. Permite manejar múltiples tareas concurrentes de manera eficiente.</p>
+                <div class="interactive">
+                    <button onclick="toggleCode('asyncio')">Mostrar/Ocultar Código</button>
+                    <pre id="asyncio" class="hidden">
+import asyncio
+
+async def contar():
+    print("Uno")
+    await asyncio.sleep(1)
+    print("Dos")
+
+async def main():
+    await asyncio.gather(contar(), contar(), contar())
+
+if __name__ == "__main__":
+    import time
+    s = time.perf_counter()
+    asyncio.run(main())
+    elapsed = time.perf_counter() - s
+    print(f"{__file__} ejecutado en {elapsed:0.2f} segundos.")
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide de Metaprogramación -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>5. Metaprogramación</h2>
+                <h3>Metaclases</h3>
+                <p>Las metaclases son clases de clases, permitiendo modificar el comportamiento de la creación de clases. Son una herramienta poderosa para la creación de frameworks y bibliotecas.</p>
+                <div class="interactive">
+                    <button onclick="toggleCode('metaclasses')">Mostrar/Ocultar Código</button>
+                    <pre id="metaclasses" class="hidden">
+class MiMetaclase(type):
+    def __new__(cls, name, bases, attrs):
+        # Convertir todos los métodos a mayúsculas
+        uppercase_attrs = {
+            key.upper(): value 
+            for key, value in attrs.items() 
+            if not key.startswith('__')
+        }
+        return super().__new__(cls, name, bases, uppercase_attrs)
+
+class MiClase(metaclass=MiMetaclase):
+    def metodo(self):
+        return "Este es un método"
+
+obj = MiClase()
+print(obj.METODO())  # Funciona porque el método se convirtió a mayúsculas
+                    </pre>
+                </div>
+                <h3>Descriptores</h3>
+                <p>Los descriptores definen cómo se accede a los atributos de una clase. Permiten personalizar el acceso, modificación y eliminación de atributos.</p>
+                <div class="interactive">
+                    <button onclick="toggleCode('descriptors')">Mostrar/Ocultar Código</button>
+                    <pre id="descriptors" class="hidden">
+class Verbose_attribute():
+    def __get__(self, obj, type=None) -> object:
+        print("Accediendo al atributo")
+        return 42
+    
+    def __set__(self, obj, value) -> None:
+        print("Cambiando el atributo")
+        
+class Foo():
+    atributo = Verbose_attribute()
+        
+f = Foo()
+x = f.atributo
+f.atributo = 21
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide de Conclusión -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>Conclusión</h2>
+                <p>Has explorado características avanzadas de Python, desde generadores y decoradores hasta metaclases y descriptores. Estos conceptos te permiten escribir código más eficiente, elegante y poderoso. ¡Sigue practicando y explorando el vasto ecosistema de Python! 🚀</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar/ocultar bloques de código
+        function toggleCode(id) {
+            var element = document.getElementById(id);
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+            } else {
+                element.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

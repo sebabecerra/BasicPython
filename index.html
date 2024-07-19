@@ -9,54 +9,47 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #f9f9f9;
+            color: #333;
             height: 100%;
-            overflow: hidden;
         }
-        .slide-container {
-            height: 100vh;
-            overflow-y: auto;
-            scroll-snap-type: y mandatory;
-        }
-        .slide {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            scroll-snap-align: start;
+        .container {
             padding: 20px;
-            box-sizing: border-box;
-        }
-        .slide-content {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             max-width: 800px;
-            width: 100%;
-            overflow-y: auto;
-            max-height: 80vh;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
         }
         h1 {
-            color: #2c3e50;
-            text-align: center;
             font-size: 2.5em;
+            text-align: center;
             margin-bottom: 20px;
         }
         h2 {
             color: #3498db;
             border-bottom: 2px solid #3498db;
             padding-bottom: 10px;
+            margin-top: 0;
         }
         h3 {
-            color: #2c3e50;
             margin-top: 20px;
         }
         .author {
             text-align: center;
             font-style: italic;
             margin-bottom: 20px;
+        }
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
         .interactive {
             background-color: #e8f4f8;
@@ -91,388 +84,205 @@
             border-radius: 5px;
             overflow-x: auto;
         }
-        .fun-fact {
-            background-color: #fdebd0;
-            border-left: 5px solid #f39c12;
-            padding: 10px;
-            margin-top: 20px;
-            border-radius: 0 10px 10px 0;
-        }
-        .emoji {
-            font-size: 1.5em;
-            margin-right: 10px;
-        }
-        .code-output {
-            background-color: #f0f0f0;
-            border-left: 5px solid #27ae60;
-            padding: 10px;
-            margin-top: 10px;
-            font-family: monospace;
-        }
     </style>
 </head>
 <body>
-    <div class="slide-container">
-        <!-- Slide de Bienvenida -->
-        <div class="slide">
-            <div class="slide-content">
-                <h1>Curso Básico de Python 🐍</h1>
-                <p class="author">Por Sebastian Becerra</p>
-                <p>Bienvenidos al curso básico de Python. En este curso aprenderemos los fundamentos del lenguaje y cómo escribir programas simples.</p>
-            </div>
+    <div class="container">
+        <!-- Bienvenida -->
+        <h1>Curso Básico de Python 🐍</h1>
+        <p class="author">Por Sebastian Becerra</p>
+        <p>Bienvenidos al curso básico de Python. En este curso aprenderemos los fundamentos del lenguaje y cómo escribir programas simples.</p>
+
+        <!-- Introducción a Python -->
+        <h2>1. Introducción a Python</h2>
+        <h3>¿Qué es Python?</h3>
+        <p>Python es un lenguaje de programación de alto nivel, interpretado y de propósito general. Se usa en desarrollo web, ciencia de datos, automatización de tareas, inteligencia artificial, y más.</p>
+        <h3>Ventajas de Python</h3>
+        <ul>
+            <li>Sintaxis sencilla y fácil de leer.</li>
+            <li>Gran comunidad y muchas bibliotecas disponibles.</li>
+            <li>Portabilidad: funciona en Windows, macOS, y Linux.</li>
+        </ul>
+        <h3>Objetivos del Curso</h3>
+        <ul>
+            <li>Aprender los conceptos básicos de Python.</li>
+            <li>Escribir y ejecutar scripts simples.</li>
+            <li>Entender la lógica de programación básica.</li>
+        </ul>
+
+        <!-- Instalación de Python -->
+        <h2>2. Instalación de Python</h2>
+        <h3>Descargar Python</h3>
+        <p>Visita <a href="https://www.python.org/downloads/" target="_blank">python.org</a> y descarga la última versión estable para tu sistema operativo.</p>
+        <h3>Instalación en Windows</h3>
+        <ol>
+            <li>Ejecuta el instalador.</li>
+            <li>Asegúrate de seleccionar "Add Python to PATH".</li>
+            <li>Sigue las instrucciones del instalador.</li>
+        </ol>
+        <h3>Instalación en macOS</h3>
+        <p>Abre la terminal y usa Homebrew: <code>brew install python</code></p>
+        <h3>Verificar la Instalación</h3>
+        <p>Abre la terminal (cmd en Windows) y escribe <code>python --version</code> o <code>python3 --version</code>. Deberías ver la versión de Python instalada.</p>
+
+        <!-- Primeros Pasos con Python -->
+        <h2>3. Primeros Pasos con Python</h2>
+        <h3>Tu Primer Programa en Python</h3>
+        <p>Abre un editor de texto (Notepad, VS Code, PyCharm) y escribe el siguiente código:</p>
+        <pre>print("¡Hola, Mundo!")</pre>
+        <p>Guarda el archivo como <code>hola_mundo.py</code>.</p>
+        <h3>Ejecutar el Programa</h3>
+        <p>Abre la terminal, navega al directorio donde guardaste el archivo y escribe <code>python hola_mundo.py</code> o <code>python3 hola_mundo.py</code>. Deberías ver <code>¡Hola, Mundo!</code> en la terminal.</p>
+        <div class="interactive">
+            <button onclick="toggleCode('primer_programa')">Mostrar/Ocultar Código</button>
+            <pre id="primer_programa" class="hidden">print("Bienvenidos al curso de Python")\nprint("¡Vamos a aprender juntos!")</pre>
         </div>
 
-        <!-- Slide de Introducción a Python -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>1. Introducción a Python</h2>
-                <h3>¿Qué es Python?</h3>
-                <p>Python es un lenguaje de programación de alto nivel, interpretado y de propósito general. Se usa en desarrollo web, ciencia de datos, automatización de tareas, inteligencia artificial, y más.</p>
-                <h3>Ventajas de Python</h3>
-                <ul>
-                    <li>Sintaxis sencilla y fácil de leer.</li>
-                    <li>Gran comunidad y muchas bibliotecas disponibles.</li>
-                    <li>Portabilidad: funciona en Windows, macOS, y Linux.</li>
-                </ul>
-                <h3>Objetivos del Curso</h3>
-                <ul>
-                    <li>Aprender los conceptos básicos de Python.</li>
-                    <li>Escribir y ejecutar scripts simples.</li>
-                    <li>Entender la lógica de programación básica.</li>
-                </ul>
-            </div>
+        <!-- Variables y Tipos de Datos -->
+        <h2>4. Variables y Tipos de Datos</h2>
+        <h3>¿Qué es una Variable?</h3>
+        <p>Una variable es un espacio en memoria donde se almacena un valor. Ejemplo:</p>
+        <pre>x = 5</pre>
+        <h3>Tipos de Datos Básicos</h3>
+        <ul>
+            <li>Enteros (int): <code>x = 5</code></li>
+            <li>Flotantes (float): <code>y = 3.14</code></li>
+            <li>Cadenas de texto (str): <code>nombre = "Juan"</code></li>
+            <li>Booleanos (bool): <code>es_mayor = True</code></li>
+        </ul>
+        <h3>Imprimir Variables</h3>
+        <pre>nombre = "Juan"\nedad = 25\nprint("Nombre:", nombre)\nprint("Edad:", edad)</pre>
+        <div class="interactive">
+            <button onclick="toggleCode('variables')">Mostrar/Ocultar Código</button>
+            <pre id="variables" class="hidden">pi = 3.14159\nes_estudiante = False\nprint("Valor de pi:", pi)\nprint("Es estudiante:", es_estudiante)</pre>
         </div>
 
-        <!-- Slide de Instalación de Python -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>2. Instalación de Python</h2>
-                <h3>Descargar Python</h3>
-                <p>Visita <a href="https://www.python.org/downloads/" target="_blank">python.org</a> y descarga la última versión estable para tu sistema operativo.</p>
-                <h3>Instalación en Windows</h3>
-                <ol>
-                    <li>Ejecuta el instalador.</li>
-                    <li>Asegúrate de seleccionar "Add Python to PATH".</li>
-                    <li>Sigue las instrucciones del instalador.</li>
-                </ol>
-                <h3>Instalación en macOS</h3>
-                <p>Abre la terminal y usa Homebrew: <code>brew install python</code></p>
-                <h3>Verificar la Instalación</h3>
-                <p>Abre la terminal (cmd en Windows) y escribe <code>python --version</code> o <code>python3 --version</code>. Deberías ver la versión de Python instalada.</p>
+        <!-- Operadores Básicos -->
+        <h2>5. Operadores Básicos</h2>
+        <h3>Operadores Aritméticos</h3>
+        <ul>
+            <li>Suma: <code>+</code></li>
+            <li>Resta: <code>-</code></li>
+            <li>Multiplicación: <code>*</code></li>
+            <li>División: <code>/</code></li>
+        </ul>
+        <pre>a = 10\nb = 5\nprint(a + b)  # Resultado: 15\nprint(a - b)  # Resultado: 5\nprint(a * b)  # Resultado: 50\nprint(a / b)  # Resultado: 2.0</pre>
+        <h3>Operadores de Comparación</h3>
+        <ul>
+            <li>Igual a: <code>==</code></li>
+            <li>Diferente de: <code>!=</code></li>
+            <li>Mayor que: <code>></code></li>
+            <li>Menor que: <code><</code></li>
+        </ul>
+        <pre>x = 10\ny = 5\nprint(x == y)  # Resultado: False\nprint(x != y)  # Resultado: True\nprint(x > y)   # Resultado: True\nprint(x < y)   # Resultado: False</pre>
+        <div class="interactive">
+            <button onclick="toggleCode('operadores')">Mostrar/Ocultar Código</button>
+            <pre id="operadores" class="hidden">z = 15\nprint(x <= z) 
+                Resultado: True\nprint(y >= z)  # Resultado: False  
             </div>
-        </div>
 
-        <!-- Slide de Primeros Pasos con Python -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>3. Primeros Pasos con Python</h2>
-                <h3>Tu Primer Programa en Python</h3>
-                <p>Abre un editor de texto (Notepad, VS Code, PyCharm) y escribe el siguiente código:</p>
-                <pre>
-print("¡Hola, Mundo!")
-                </pre>
-                <p>Guarda el archivo como <code>hola_mundo.py</code>.</p>
-                <h3>Ejecutar el Programa</h3>
-                <p>Abre la terminal, navega al directorio donde guardaste el archivo y escribe <code>python hola_mundo.py</code> o <code>python3 hola_mundo.py</code>. Deberías ver <code>¡Hola, Mundo!</code> en la terminal.</p>
-                <div class="interactive">
-                    <button onclick="toggleCode('primer_programa')">Mostrar/Ocultar Código</button>
-                    <pre id="primer_programa" class="hidden">
-print("Bienvenidos al curso de Python")
-print("¡Vamos a aprender juntos!")
-                    </pre>
-                </div>
+            <!-- Estructuras de Control -->
+            <h2>6. Estructuras de Control</h2>
+            <h3>Condicionales (if, elif, else)</h3>
+            <p>Permiten tomar decisiones en el código.</p>
+            <pre>edad = 20\nif edad >= 18:\n    print("Eres mayor de edad")\nelse:\n    print("Eres menor de edad")</pre>
+            <p>Ejemplo con <code>elif</code>:</p>
+            <pre>nota = 85\nif nota >= 90:\n    print("Excelente")\nelif nota >= 70:\n    print("Bueno")\nelse:\n    print("Necesita mejorar")</pre>
+            <h3>Bucles (for, while)</h3>
+            <p>Bucle <code>for</code>:</p>
+            <pre>for i in range(5):\n    print(i)</pre>
+            <p>Bucle <code>while</code>:</p>
+            <pre>contador = 0\nwhile contador < 5:\n    print(contador)\n    contador += 1</pre>
+            <div class="interactive">
+                <button onclick="toggleCode('bucles')">Mostrar/Ocultar Código</button>
+                <pre id="bucles" class="hidden">for fruta in ["manzana", "banana", "cereza"]:\n    print(fruta)</pre>
             </div>
-        </div>
-
-        <!-- Slide de Variables y Tipos de Datos -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>4. Variables y Tipos de Datos</h2>
-                <h3>¿Qué es una Variable?</h3>
-                <p>Una variable es un espacio en memoria donde se almacena un valor. Ejemplo:</p>
-                <pre>
-x = 5
-                </pre>
-                <h3>Tipos de Datos Básicos</h3>
-                <ul>
-                    <li>Enteros (int): <code>x = 5</code></li>
-                    <li>Flotantes (float): <code>y = 3.14</code></li>
-                    <li>Cadenas de texto (str): <code>nombre = "Juan"</code></li>
-                    <li>Booleanos (bool): <code>es_mayor = True</code></li>
-                </ul>
-                <h3>Imprimir Variables</h3>
-                <pre>
-nombre = "Juan"
-edad = 25
-print("Nombre:", nombre)
-print("Edad:", edad)
-                </pre>
-                <div class="interactive">
-                    <button onclick="toggleCode('variables')">Mostrar/Ocultar Código</button>
-                    <pre id="variables" class="hidden">
-pi = 3.14159
-es_estudiante = False
-print("Valor de pi:", pi)
-print("Es estudiante:", es_estudiante)
-                    </pre>
-                </div>
+        
+            <!-- Funciones -->
+            <h2>7. Funciones</h2>
+            <h3>¿Qué es una Función?</h3>
+            <p>Un bloque de código que realiza una tarea específica. Se puede reutilizar en diferentes partes del programa.</p>
+            <h3>Definir una Función</h3>
+            <pre>def saludar(nombre):\n    print("Hola,", nombre)</pre>
+            <h3>Llamar a una Función</h3>
+            <pre>saludar("Juan")</pre>
+            <h3>Parámetros y Argumentos</h3>
+            <p>Parámetros: Variables que se definen en la función.</p>
+            <p>Argumentos: Valores que se pasan a la función.</p>
+            <pre>def sumar(a, b):\n    return a + b\n\nresultado = sumar(3, 5)\nprint("Resultado:", resultado)</pre>
+            <div class="interactive">
+                <button onclick="toggleCode('funciones')">Mostrar/Ocultar Código</button>
+                <pre id="funciones" class="hidden">def multiplicar(x, y):\n    return x * y\n\nprint("Multiplicación:", multiplicar(4, 5))</pre>
             </div>
-        </div>
-
-        <!-- Slide de Operadores Básicos -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>5. Operadores Básicos</h2>
-                <h3>Operadores Aritméticos</h3>
-                <ul>
-                    <li>Suma: <code>+</code></li>
-                    <li>Resta: <code>-</code></li>
-                    <li>Multiplicación: <code>*</code></li>
-                    <li>División: <code>/</code></li>
-                </ul>
-                <pre>
-a = 10
-b = 5
-print(a + b)  # Resultado: 15
-print(a - b)  # Resultado: 5
-print(a * b)  # Resultado: 50
-print(a / b)  # Resultado: 2.0
-                </pre>
-                <h3>Operadores de Comparación</h3>
-                <ul>
-                    <li>Igual a: <code>==</code></li>
-                    <li>Diferente de: <code>!=</code></li>
-                    <li>Mayor que: <code>></code></li>
-                    <li>Menor que: <code><</code></li>
-                </ul>
-                <pre>
-x = 10
-y = 5
-print(x == y)  # Resultado: False
-print(x != y)  # Resultado: True
-print(x > y)   # Resultado: True
-print(x < y)   # Resultado: False
-                </pre>
-                <div class="interactive">
-                    <button onclick="toggleCode('operadores')">Mostrar/Ocultar Código</button>
-                    <pre id="operadores" class="hidden">
-z = 15
-print(x <= z)  # Resultado: True
-print(y >= z)  # Resultado: False
-                    </pre>
-                </div>
+        
+            <!-- Listas y Diccionarios -->
+            <h2>8. Listas y Diccionarios</h2>
+            <h3>Listas</h3>
+            <p>Una colección ordenada de elementos.</p>
+            <pre>frutas = ["manzana", "banana", "cereza"]\nprint(frutas[0])  # Resultado: manzana</pre>
+            <h3>Agregar Elementos a una Lista</h3>
+            <pre>frutas.append("naranja")\nprint(frutas)  # Resultado: ["manzana", "banana", "cereza", "naranja"]</pre>
+            <h3>Eliminar Elementos de una Lista</h3>
+            <pre>frutas.remove("banana")\nprint(frutas)  # Resultado: ["manzana", "cereza", "naranja"]</pre>
+            <h3>Diccionarios</h3>
+            <p>Colección de pares clave-valor.</p>
+            <pre>estudiante = {\n    "nombre": "Ana",\n    "edad": 22,\n    "curso": "Matemáticas"\n}\nprint(estudiante["nombre"])  # Resultado: Ana</pre>
+            <h3>Agregar un Nuevo Par Clave-Valor</h3>
+            <pre>estudiante["universidad"] = "U de Chile"\nprint(estudiante)</pre>
+            <h3>Eliminar un Par Clave-Valor</h3>
+            <pre>del estudiante["curso"]\nprint(estudiante)</pre>
+            <div class="interactive">
+                <button onclick="toggleCode('listas_diccionarios')">Mostrar/Ocultar Código</button>
+                <pre id="listas_diccionarios" class="hidden">colores = ["rojo", "verde", "azul"]\ncolores[1] = "amarillo"\nprint(colores)  # Resultado: ["rojo", "amarillo", "azul"]</pre>
             </div>
-        </div>
-
-        <!-- Slide de Estructuras de Control -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>6. Estructuras de Control</h2>
-                <h3>Condicionales (if, elif, else)</h3>
-                <p>Permiten tomar decisiones en el código.</p>
-                <pre>
-edad = 20
-if edad >= 18:
-    print("Eres mayor de edad")
-else:
-    print("Eres menor de edad")
-                </pre>
-                <p>Ejemplo con <code>elif</code>:</p>
-                <pre>
-nota = 85
-if nota >= 90:
-    print("Excelente")
-elif nota >= 70:
-    print("Bueno")
-else:
-    print("Necesita mejorar")
-                </pre>
-                <h3>Bucles (for, while)</h3>
-                <p>Bucle <code>for</code>:</p>
-                <pre>
-for i in range(5):
-    print(i)
-                </pre>
-                <p>Bucle <code>while</code>:</p>
-                <pre>
-contador = 0
-while contador < 5:
-    print(contador)
-    contador += 1
-                </pre>
-                <div class="interactive">
-                    <button onclick="toggleCode('bucles')">Mostrar/Ocultar Código</button>
-                    <pre id="bucles" class="hidden">
-for fruta in ["manzana", "banana", "cereza"]:
-    print(fruta)
-                    </pre>
-                </div>
+        
+            <!-- Manejo de Archivos -->
+            <h2>9. Manejo de Archivos</h2>
+            <h3>Abrir y Leer un Archivo</h3>
+            <pre>archivo = open("datos.txt", "r")\ncontenido = archivo.read()\nprint(contenido)\narchivo.close()</pre>
+            <h3>Leer Línea por Línea</h3>
+            <pre>archivo = open("datos.txt", "r")\nfor linea in archivo:\n    print(linea.strip())\narchivo.close()</pre>
+            <h3>Escribir en un Archivo</h3>
+            <pre>archivo = open("datos.txt", "w")\narchivo.write("Hola, archivo!")\narchivo.close()</pre>
+            <h3>Agregar Contenido a un Archivo Existente</h3>
+            <pre>archivo = open("datos.txt", "a")\narchivo.write("\nNueva línea de texto.")\narchivo.close()</pre>
+            <div class="interactive">
+                <button onclick="toggleCode('manejo_archivos')">Mostrar/Ocultar Código</button>
+                <pre id="manejo_archivos" class="hidden">with open("datos.txt", "r") as archivo:\n    for linea in archivo:\n        print(linea.strip())</pre>
             </div>
+        
+            <!-- Conclusión -->
+            <h2>Conclusión y Próximos Pasos</h2>
+            <p>Resumen del curso:</p>
+            <ul>
+                <li>Instalación de Python.</li>
+                <li>Primer programa.</li>
+                <li>Variables, tipos de datos y operadores.</li>
+                <li>Estructuras de control.</li>
+                <li>Funciones.</li>
+                <li>Listas y diccionarios.</li>
+                <li>Manejo de archivos.</li>
+            </ul>
+            <h3>Próximos Pasos</h3>
+            <ul>
+                <li>Practicar con ejercicios en <a href="https://www.hackerrank.com/domains/tutorials/10-days-of-python" target="_blank">HackerRank</a> o <a href="https://leetcode.com/" target="_blank">LeetCode</a>.</li>
+                <li>Explorar bibliotecas populares como <code>numpy</code>, <code>pandas</code>, y <code>matplotlib</code>.</li>
+                <li>Continuar con cursos más avanzados en <a href="https://www.coursera.org/learn/python-data-analysis" target="_blank">Coursera</a> o <a href="https://www.udacity.com/course/intro-to-data-science--ud359" target="_blank">Udacity</a>.</li>
+            </ul>
         </div>
-
-        <!-- Slide de Funciones -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>7. Funciones</h2>
-                <h3>¿Qué es una Función?</h3>
-                <p>Un bloque de código que realiza una tarea específica. Se puede reutilizar en diferentes partes del programa.</p>
-                <h3>Definir una Función</h3>
-                <pre>
-def saludar(nombre):
-    print("Hola,", nombre)
-                </pre>
-                <h3>Llamar a una Función</h3>
-                <pre>
-saludar("Juan")
-                </pre>
-                <h3>Parámetros y Argumentos</h3>
-                <p>Parámetros: Variables que se definen en la función.</p>
-                <p>Argumentos: Valores que se pasan a la función.</p>
-                <pre>
-def sumar(a, b):
-    return a + b
-
-resultado = sumar(3, 5)
-print("Resultado:", resultado)
-                </pre>
-                <div class="interactive">
-                    <button onclick="toggleCode('funciones')">Mostrar/Ocultar Código</button>
-                    <pre id="funciones" class="hidden">
-def multiplicar(x, y):
-    return x * y
-
-print("Multiplicación:", multiplicar(4, 5))
-                    </pre>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide de Listas y Diccionarios -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>8. Listas y Diccionarios</h2>
-                <h3>Listas</h3>
-                <p>Una colección ordenada de elementos.</p>
-                <pre>
-frutas = ["manzana", "banana", "cereza"]
-print(frutas[0])  # Resultado: manzana
-                </pre>
-                <h3>Agregar Elementos a una Lista</h3>
-                <pre>
-frutas.append("naranja")
-print(frutas)  # Resultado: ["manzana", "banana", "cereza", "naranja"]
-                </pre>
-                <h3>Eliminar Elementos de una Lista</h3>
-                <pre>
-frutas.remove("banana")
-print(frutas)  # Resultado: ["manzana", "cereza", "naranja"]
-                </pre>
-                <h3>Diccionarios</h3>
-                <p>Colección de pares clave-valor.</p>
-                <pre>
-estudiante = {
-    "nombre": "Ana",
-    "edad": 22,
-    "curso": "Matemáticas"
-}
-print(estudiante["nombre"])  # Resultado: Ana
-                </pre>
-                <h3>Agregar un Nuevo Par Clave-Valor</h3>
-                <pre>
-estudiante["universidad"] = "U de Chile"
-print(estudiante)
-                </pre>
-                <h3>Eliminar un Par Clave-Valor</h3>
-                <pre>
-del estudiante["curso"]
-print(estudiante)
-                </pre>
-                <div class="interactive">
-                    <button onclick="toggleCode('listas_diccionarios')">Mostrar/Ocultar Código</button>
-                    <pre id="listas_diccionarios" class="hidden">
-colores = ["rojo", "verde", "azul"]
-colores[1] = "amarillo"
-print(colores)  # Resultado: ["rojo", "amarillo", "azul"]
-                    </pre>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide de Manejo de Archivos -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>9. Manejo de Archivos</h2>
-                <h3>Abrir y Leer un Archivo</h3>
-                <pre>
-archivo = open("datos.txt", "r")
-contenido = archivo.read()
-print(contenido)
-archivo.close()
-                </pre>
-                <h3>Leer Línea por Línea</h3>
-                <pre>
-archivo = open("datos.txt", "r")
-for linea in archivo:
-    print(linea.strip())
-archivo.close()
-                </pre>
-                <h3>Escribir en un Archivo</h3>
-                <pre>
-archivo = open("datos.txt", "w")
-archivo.write("Hola, archivo!")
-archivo.close()
-                </pre>
-                <h3>Agregar Contenido a un Archivo Existente</h3>
-                <pre>
-archivo = open("datos.txt", "a")
-archivo.write("\nNueva línea de texto.")
-archivo.close()
-                </pre>
-                <div class="interactive">
-                    <button onclick="toggleCode('manejo_archivos')">Mostrar/Ocultar Código</button>
-                    <pre id="manejo_archivos" class="hidden">
-with open("datos.txt", "r") as archivo:
-    for linea in archivo:
-        print(linea.strip())
-                    </pre>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide de Conclusión -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>Conclusión y Próximos Pasos</h2>
-                <p>Resumen del curso:</p>
-                <ul>
-                    <li>Instalación de Python.</li>
-                    <li>Primer programa.</li>
-                    <li>Variables, tipos de datos y operadores.</li>
-                    <li>Estructuras de control.</li>
-                    <li>Funciones.</li>
-                    <li>Listas y diccionarios.</li>
-                    <li>Manejo de archivos.</li>
-                </ul>
-                <h3>Próximos Pasos</h3>
-                <ul>
-                    <li>Practicar con ejercicios en <a href="https://www.hackerrank.com/domains/tutorials/10-days-of-python" target="_blank">HackerRank</a> o <a href="https://leetcode.com/" target="_blank">LeetCode</a>.</li>
-                    <li>Explorar bibliotecas populares como <code>numpy</code>, <code>pandas</code>, y <code>matplotlib</code>.</li>
-                    <li>Continuar con cursos más avanzados en <a href="https://www.coursera.org/learn/python-data-analysis" target="_blank">Coursera</a> o <a href="https://www.udacity.com/course/intro-to-data-science--ud359" target="_blank">Udacity</a>.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Función para mostrar/ocultar bloques de código
-        function toggleCode(id) {
-            var element = document.getElementById(id);
-            if (element.classList.contains('hidden')) {
-                element.classList.remove('hidden');
-            } else {
-                element.classList.add('hidden');
+        
+        <script>
+            // Función para mostrar/ocultar bloques de código
+            function toggleCode(id) {
+                var element = document.getElementById(id);
+                if (element.classList.contains('hidden')) {
+                    element.classList.remove('hidden');
+                } else {
+                    element.classList.add('hidden');
+                }
             }
-        }
-    </script>
-</body>
+        </script>
+        </body>
 </html>
+
+        

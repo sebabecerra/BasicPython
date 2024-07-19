@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso Avanzado de Python</title>
+    <title>Curso Básico de Python</title>
     <style>
         body, html {
             margin: 0;
@@ -116,284 +116,324 @@
         <!-- Slide de Bienvenida -->
         <div class="slide">
             <div class="slide-content">
-                <h1>Curso Avanzado de Python 🐍</h1>
+                <h1>Curso Básico de Python 🐍</h1>
                 <p class="author">Por Sebastian Becerra</p>
-                <p>Bienvenidos a este viaje profundo por el mundo de Python. Prepárense para sumergirse en los fundamentos y características avanzadas de este poderoso lenguaje de programación.</p>
+                <p>Bienvenidos al curso básico de Python. En este curso aprenderemos los fundamentos del lenguaje y cómo escribir programas simples.</p>
             </div>
         </div>
 
-        <!-- Slide de Generadores -->
+        <!-- Slide de Introducción a Python -->
         <div class="slide">
             <div class="slide-content">
-                <h2>1. Características Avanzadas de Python</h2>
-                <h3>Generadores y Expresiones Generadoras</h3>
-                <p>Los generadores son funciones que producen una secuencia de resultados en lugar de calcular todo de una vez y devolver una sola vez. Son útiles para trabajar con secuencias grandes de datos sin usar mucha memoria.</p>
-                <div class="interactive">
-                    <button onclick="toggleCode('generators')">Mostrar/Ocultar Código</button>
-                    <pre id="generators" class="hidden">
-# Definición de un generador de números Fibonacci
-def fibonacci_generator():
-    a, b = 0, 1
-    while True:
-        yield a
-        a, b = b, a + b
-
-# Uso del generador
-fib = fibonacci_generator()
-for _ in range(10):
-    print(next(fib), end=' ')
-
-# Expresión generadora para crear una secuencia de cuadrados
-cuadrados = (x**2 for x in range(10))
-print("\nCuadrados:", list(cuadrados))
-                    </pre>
-                </div>
-                <h3>Decoradores</h3>
-                <p>Los decoradores son una forma de modificar o mejorar funciones o clases sin cambiar su código fuente. Son muy útiles para reutilizar código y aplicar patrones de diseño.</p>
-                <div class="interactive">
-                    <button onclick="toggleCode('decorators')">Mostrar/Ocultar Código</button>
-                    <pre id="decorators" class="hidden">
-# Definición de un decorador
-def mi_decorador(func):
-    def wrapper():
-        print("Algo está sucediendo antes de la función")
-        func()
-        print("Algo está sucediendo después de la función")
-    return wrapper
-
-# Uso del decorador
-@mi_decorador
-def saludo():
-    print("¡Hola, mundo!")
-
-saludo()
-                    </pre>
-                </div>
+                <h2>1. Introducción a Python</h2>
+                <h3>¿Qué es Python?</h3>
+                <p>Python es un lenguaje de programación de alto nivel, interpretado y de propósito general. Se usa en desarrollo web, ciencia de datos, automatización de tareas, inteligencia artificial, y más.</p>
+                <h3>Ventajas de Python</h3>
+                <ul>
+                    <li>Sintaxis sencilla y fácil de leer.</li>
+                    <li>Gran comunidad y muchas bibliotecas disponibles.</li>
+                    <li>Portabilidad: funciona en Windows, macOS, y Linux.</li>
+                </ul>
+                <h3>Objetivos del Curso</h3>
+                <ul>
+                    <li>Aprender los conceptos básicos de Python.</li>
+                    <li>Escribir y ejecutar scripts simples.</li>
+                    <li>Entender la lógica de programación básica.</li>
+                </ul>
             </div>
         </div>
 
-        <!-- Slide de Programación Orientada a Objetos Avanzada -->
+        <!-- Slide de Instalación de Python -->
         <div class="slide">
             <div class="slide-content">
-                <h2>2. Programación Orientada a Objetos Avanzada</h2>
-                <h3>Herencia Múltiple y MRO (Method Resolution Order)</h3>
-                <p>Python permite la herencia múltiple, donde una clase puede heredar de varias clases padre. El MRO define el orden en que se buscan los métodos en una jerarquía de clases.</p>
+                <h2>2. Instalación de Python</h2>
+                <h3>Descargar Python</h3>
+                <p>Visita <a href="https://www.python.org/downloads/" target="_blank">python.org</a> y descarga la última versión estable para tu sistema operativo.</p>
+                <h3>Instalación en Windows</h3>
+                <ol>
+                    <li>Ejecuta el instalador.</li>
+                    <li>Asegúrate de seleccionar "Add Python to PATH".</li>
+                    <li>Sigue las instrucciones del instalador.</li>
+                </ol>
+                <h3>Instalación en macOS</h3>
+                <p>Abre la terminal y usa Homebrew: <code>brew install python</code></p>
+                <h3>Verificar la Instalación</h3>
+                <p>Abre la terminal (cmd en Windows) y escribe <code>python --version</code> o <code>python3 --version</code>. Deberías ver la versión de Python instalada.</p>
+            </div>
+        </div>
+
+        <!-- Slide de Primeros Pasos con Python -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>3. Primeros Pasos con Python</h2>
+                <h3>Tu Primer Programa en Python</h3>
+                <p>Abre un editor de texto (Notepad, VS Code, PyCharm) y escribe el siguiente código:</p>
+                <pre>
+print("¡Hola, Mundo!")
+                </pre>
+                <p>Guarda el archivo como <code>hola_mundo.py</code>.</p>
+                <h3>Ejecutar el Programa</h3>
+                <p>Abre la terminal, navega al directorio donde guardaste el archivo y escribe <code>python hola_mundo.py</code> o <code>python3 hola_mundo.py</code>. Deberías ver <code>¡Hola, Mundo!</code> en la terminal.</p>
                 <div class="interactive">
-                    <button onclick="toggleCode('multiple_inheritance')">Mostrar/Ocultar Código</button>
-                    <pre id="multiple_inheritance" class="hidden">
-class A:
-    def quien_soy(self):
-        print("Soy A")
-
-class B(A):
-    def quien_soy(self):
-        print("Soy B")
-
-class C(A):
-    def quien_soy(self):
-        print("Soy C")
-
-class D(B, C):
-    pass
-
-d = D()
-d.quien_soy()  # Imprime "Soy B" debido al MRO
-print(D.mro())  # Muestra el orden de resolución de métodos
-                    </pre>
-                </div>
-                <h3>Métodos Mágicos (Dunder Methods)</h3>
-                <p>Los métodos mágicos, también conocidos como métodos dunder (double underscore), permiten definir comportamientos especiales para las clases, como la representación de objetos y la sobrecarga de operadores.</p>
-                <div class="interactive">
-                    <button onclick="toggleCode('dunder_methods')">Mostrar/Ocultar Código</button>
-                    <pre id="dunder_methods" class="hidden">
-class Libro:
-    def __init__(self, titulo, autor, paginas):
-        self.titulo = titulo
-        self.autor = autor
-        self.paginas = paginas
-
-    def __str__(self):
-        return f"{self.titulo} por {self.autor}"
-
-    def __len__(self):
-        return self.paginas
-
-    def __del__(self):
-        print(f"El libro {self.titulo} ha sido eliminado")
-
-libro = Libro("Python Avanzado", "Sebastian Becerra", 300)
-print(str(libro))
-print(len(libro))
-del libro
+                    <button onclick="toggleCode('primer_programa')">Mostrar/Ocultar Código</button>
+                    <pre id="primer_programa" class="hidden">
+print("Bienvenidos al curso de Python")
+print("¡Vamos a aprender juntos!")
                     </pre>
                 </div>
             </div>
         </div>
 
-        <!-- Slide de Manejo Avanzado de Datos -->
+        <!-- Slide de Variables y Tipos de Datos -->
         <div class="slide">
             <div class="slide-content">
-                <h2>3. Manejo Avanzado de Datos</h2>
-                <h3>Comprehensions</h3>
-                <p>Las comprehensions son una forma concisa de crear listas, diccionarios y conjuntos en Python, y permiten escribir código más limpio y eficiente.</p>
+                <h2>4. Variables y Tipos de Datos</h2>
+                <h3>¿Qué es una Variable?</h3>
+                <p>Una variable es un espacio en memoria donde se almacena un valor. Ejemplo:</p>
+                <pre>
+x = 5
+                </pre>
+                <h3>Tipos de Datos Básicos</h3>
+                <ul>
+                    <li>Enteros (int): <code>x = 5</code></li>
+                    <li>Flotantes (float): <code>y = 3.14</code></li>
+                    <li>Cadenas de texto (str): <code>nombre = "Juan"</code></li>
+                    <li>Booleanos (bool): <code>es_mayor = True</code></li>
+                </ul>
+                <h3>Imprimir Variables</h3>
+                <pre>
+nombre = "Juan"
+edad = 25
+print("Nombre:", nombre)
+print("Edad:", edad)
+                </pre>
                 <div class="interactive">
-                    <button onclick="toggleCode('comprehensions')">Mostrar/Ocultar Código</button>
-                    <pre id="comprehensions" class="hidden">
-# List comprehension
-cuadrados = [x**2 for x in range(10)]
-print("Cuadrados:", cuadrados)
-
-# Dict comprehension
-cuadrados_dict = {x: x**2 for x in range(5)}
-print("Diccionario de cuadrados:", cuadrados_dict)
-
-# Set comprehension
-vocales_set = {letra for letra in "murcielago"}
-print("Set de vocales:", vocales_set)
-
-# Comprehension con condición
-pares = [x for x in range(20) if x % 2 == 0]
-print("Números pares:", pares)
-                    </pre>
-                </div>
-                <h3>Módulo Collections</h3>
-                <p>El módulo collections proporciona alternativas especializadas a los contenedores integrados de Python, como defaultdict, Counter y namedtuple.</p>
-                <div class="interactive">
-                    <button onclick="toggleCode('collections_module')">Mostrar/Ocultar Código</button>
-                    <pre id="collections_module" class="hidden">
-from collections import Counter, defaultdict, namedtuple
-
-# Counter
-texto = "mississippi"
-print(Counter(texto))
-
-# defaultdict
-d = defaultdict(list)
-d['frutas'].append('manzana')
-d['frutas'].append('banana')
-print(dict(d))
-
-# namedtuple
-Punto = namedtuple('Punto', ['x', 'y'])
-p = Punto(11, y=22)
-print(p.x, p.y)
+                    <button onclick="toggleCode('variables')">Mostrar/Ocultar Código</button>
+                    <pre id="variables" class="hidden">
+pi = 3.14159
+es_estudiante = False
+print("Valor de pi:", pi)
+print("Es estudiante:", es_estudiante)
                     </pre>
                 </div>
             </div>
         </div>
 
-        <!-- Slide de Concurrencia y Paralelismo -->
+        <!-- Slide de Operadores Básicos -->
         <div class="slide">
             <div class="slide-content">
-                <h2>4. Concurrencia y Paralelismo</h2>
-                <h3>Threading y Multiprocessing</h3>
-                <p>Python ofrece módulos para trabajar con hilos y procesos múltiples, permitiendo la ejecución concurrente y paralela de código. Esto es útil para tareas que requieren mucho tiempo de CPU o I/O.</p>
+                <h2>5. Operadores Básicos</h2>
+                <h3>Operadores Aritméticos</h3>
+                <ul>
+                    <li>Suma: <code>+</code></li>
+                    <li>Resta: <code>-</code></li>
+                    <li>Multiplicación: <code>*</code></li>
+                    <li>División: <code>/</code></li>
+                </ul>
+                <pre>
+a = 10
+b = 5
+print(a + b)  # Resultado: 15
+print(a - b)  # Resultado: 5
+print(a * b)  # Resultado: 50
+print(a / b)  # Resultado: 2.0
+                </pre>
+                <h3>Operadores de Comparación</h3>
+                <ul>
+                    <li>Igual a: <code>==</code></li>
+                    <li>Diferente de: <code>!=</code></li>
+                    <li>Mayor que: <code>></code></li>
+                    <li>Menor que: <code><</code></li>
+                </ul>
+                <pre>
+x = 10
+y = 5
+print(x == y)  # Resultado: False
+print(x != y)  # Resultado: True
+print(x > y)   # Resultado: True
+print(x < y)   # Resultado: False
+                </pre>
                 <div class="interactive">
-                    <button onclick="toggleCode('concurrency')">Mostrar/Ocultar Código</button>
-                    <pre id="concurrency" class="hidden">
-import threading
-import multiprocessing
-import time
+                    <button onclick="toggleCode('operadores')">Mostrar/Ocultar Código</button>
+                    <pre id="operadores" class="hidden">
+z = 15
+print(x <= z)  # Resultado: True
+print(y >= z)  # Resultado: False
+                    </pre>
+                </div>
+            </div>
+        </div>
 
-def worker(num):
-    print(f'Trabajador {num}')
-    time.sleep(1)
-    print(f'Trabajador {num} terminado')
-
-# Threading
-threads = []
+        <!-- Slide de Estructuras de Control -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>6. Estructuras de Control</h2>
+                <h3>Condicionales (if, elif, else)</h3>
+                <p>Permiten tomar decisiones en el código.</p>
+                <pre>
+edad = 20
+if edad >= 18:
+    print("Eres mayor de edad")
+else:
+    print("Eres menor de edad")
+                </pre>
+                <p>Ejemplo con <code>elif</code>:</p>
+                <pre>
+nota = 85
+if nota >= 90:
+    print("Excelente")
+elif nota >= 70:
+    print("Bueno")
+else:
+    print("Necesita mejorar")
+                </pre>
+                <h3>Bucles (for, while)</h3>
+                <p>Bucle <code>for</code>:</p>
+                <pre>
 for i in range(5):
-    t = threading.Thread(target=worker, args=(i,))
-    threads.append(t)
-    t.start()
-
-for t in threads:
-    t.join()
-
-# Multiprocessing
-if __name__ == '__main__':
-    processes = []
-    for i in range(5):
-        p = multiprocessing.Process(target=worker, args=(i,))
-        processes.append(p)
-        p.start()
-
-    for p in processes:
-        p.join()
-                    </pre>
-                </div>
-                <h3>Asyncio</h3>
-                <p>Asyncio es un módulo para escribir código concurrente usando la sintaxis async/await. Permite manejar múltiples tareas concurrentes de manera eficiente.</p>
+    print(i)
+                </pre>
+                <p>Bucle <code>while</code>:</p>
+                <pre>
+contador = 0
+while contador < 5:
+    print(contador)
+    contador += 1
+                </pre>
                 <div class="interactive">
-                    <button onclick="toggleCode('asyncio')">Mostrar/Ocultar Código</button>
-                    <pre id="asyncio" class="hidden">
-import asyncio
-
-async def contar():
-    print("Uno")
-    await asyncio.sleep(1)
-    print("Dos")
-
-async def main():
-    await asyncio.gather(contar(), contar(), contar())
-
-if __name__ == "__main__":
-    import time
-    s = time.perf_counter()
-    asyncio.run(main())
-    elapsed = time.perf_counter() - s
-    print(f"{__file__} ejecutado en {elapsed:0.2f} segundos.")
+                    <button onclick="toggleCode('bucles')">Mostrar/Ocultar Código</button>
+                    <pre id="bucles" class="hidden">
+for fruta in ["manzana", "banana", "cereza"]:
+    print(fruta)
                     </pre>
                 </div>
             </div>
         </div>
 
-        <!-- Slide de Metaprogramación -->
+        <!-- Slide de Funciones -->
         <div class="slide">
             <div class="slide-content">
-                <h2>5. Metaprogramación</h2>
-                <h3>Metaclases</h3>
-                <p>Las metaclases son clases de clases, permitiendo modificar el comportamiento de la creación de clases. Son una herramienta poderosa para la creación de frameworks y bibliotecas.</p>
+                <h2>7. Funciones</h2>
+                <h3>¿Qué es una Función?</h3>
+                <p>Un bloque de código que realiza una tarea específica. Se puede reutilizar en diferentes partes del programa.</p>
+                <h3>Definir una Función</h3>
+                <pre>
+def saludar(nombre):
+    print("Hola,", nombre)
+                </pre>
+                <h3>Llamar a una Función</h3>
+                <pre>
+saludar("Juan")
+                </pre>
+                <h3>Parámetros y Argumentos</h3>
+                <p>Parámetros: Variables que se definen en la función.</p>
+                <p>Argumentos: Valores que se pasan a la función.</p>
+                <pre>
+def sumar(a, b):
+    return a + b
+
+resultado = sumar(3, 5)
+print("Resultado:", resultado)
+                </pre>
                 <div class="interactive">
-                    <button onclick="toggleCode('metaclasses')">Mostrar/Ocultar Código</button>
-                    <pre id="metaclasses" class="hidden">
-class MiMetaclase(type):
-    def __new__(cls, name, bases, attrs):
-        # Convertir todos los métodos a mayúsculas
-        uppercase_attrs = {
-            key.upper(): value 
-            for key, value in attrs.items() 
-            if not key.startswith('__')
-        }
-        return super().__new__(cls, name, bases, uppercase_attrs)
+                    <button onclick="toggleCode('funciones')">Mostrar/Ocultar Código</button>
+                    <pre id="funciones" class="hidden">
+def multiplicar(x, y):
+    return x * y
 
-class MiClase(metaclass=MiMetaclase):
-    def metodo(self):
-        return "Este es un método"
-
-obj = MiClase()
-print(obj.METODO())  # Funciona porque el método se convirtió a mayúsculas
+print("Multiplicación:", multiplicar(4, 5))
                     </pre>
                 </div>
-                <h3>Descriptores</h3>
-                <p>Los descriptores definen cómo se accede a los atributos de una clase. Permiten personalizar el acceso, modificación y eliminación de atributos.</p>
+            </div>
+        </div>
+
+        <!-- Slide de Listas y Diccionarios -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>8. Listas y Diccionarios</h2>
+                <h3>Listas</h3>
+                <p>Una colección ordenada de elementos.</p>
+                <pre>
+frutas = ["manzana", "banana", "cereza"]
+print(frutas[0])  # Resultado: manzana
+                </pre>
+                <h3>Agregar Elementos a una Lista</h3>
+                <pre>
+frutas.append("naranja")
+print(frutas)  # Resultado: ["manzana", "banana", "cereza", "naranja"]
+                </pre>
+                <h3>Eliminar Elementos de una Lista</h3>
+                <pre>
+frutas.remove("banana")
+print(frutas)  # Resultado: ["manzana", "cereza", "naranja"]
+                </pre>
+                <h3>Diccionarios</h3>
+                <p>Colección de pares clave-valor.</p>
+                <pre>
+estudiante = {
+    "nombre": "Ana",
+    "edad": 22,
+    "curso": "Matemáticas"
+}
+print(estudiante["nombre"])  # Resultado: Ana
+                </pre>
+                <h3>Agregar un Nuevo Par Clave-Valor</h3>
+                <pre>
+estudiante["universidad"] = "U de Chile"
+print(estudiante)
+                </pre>
+                <h3>Eliminar un Par Clave-Valor</h3>
+                <pre>
+del estudiante["curso"]
+print(estudiante)
+                </pre>
                 <div class="interactive">
-                    <button onclick="toggleCode('descriptors')">Mostrar/Ocultar Código</button>
-                    <pre id="descriptors" class="hidden">
-class Verbose_attribute():
-    def __get__(self, obj, type=None) -> object:
-        print("Accediendo al atributo")
-        return 42
-    
-    def __set__(self, obj, value) -> None:
-        print("Cambiando el atributo")
-        
-class Foo():
-    atributo = Verbose_attribute()
-        
-f = Foo()
-x = f.atributo
-f.atributo = 21
+                    <button onclick="toggleCode('listas_diccionarios')">Mostrar/Ocultar Código</button>
+                    <pre id="listas_diccionarios" class="hidden">
+colores = ["rojo", "verde", "azul"]
+colores[1] = "amarillo"
+print(colores)  # Resultado: ["rojo", "amarillo", "azul"]
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide de Manejo de Archivos -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>9. Manejo de Archivos</h2>
+                <h3>Abrir y Leer un Archivo</h3>
+                <pre>
+archivo = open("datos.txt", "r")
+contenido = archivo.read()
+print(contenido)
+archivo.close()
+                </pre>
+                <h3>Leer Línea por Línea</h3>
+                <pre>
+archivo = open("datos.txt", "r")
+for linea in archivo:
+    print(linea.strip())
+archivo.close()
+                </pre>
+                <h3>Escribir en un Archivo</h3>
+                <pre>
+archivo = open("datos.txt", "w")
+archivo.write("Hola, archivo!")
+archivo.close()
+                </pre>
+                <h3>Agregar Contenido a un Archivo Existente</h3>
+                <pre>
+archivo = open("datos.txt", "a")
+archivo.write("\nNueva línea de texto.")
+archivo.close()
+                </pre>
+                <div class="interactive">
+                    <button onclick="toggleCode('manejo_archivos')">Mostrar/Ocultar Código</button>
+                    <pre id="manejo_archivos" class="hidden">
+with open("datos.txt", "r") as archivo:
+    for linea in archivo:
+        print(linea.strip())
                     </pre>
                 </div>
             </div>
@@ -402,8 +442,23 @@ f.atributo = 21
         <!-- Slide de Conclusión -->
         <div class="slide">
             <div class="slide-content">
-                <h2>Conclusión</h2>
-                <p>Has explorado características avanzadas de Python, desde generadores y decoradores hasta metaclases y descriptores. Estos conceptos te permiten escribir código más eficiente, elegante y poderoso. ¡Sigue practicando y explorando el vasto ecosistema de Python! 🚀</p>
+                <h2>Conclusión y Próximos Pasos</h2>
+                <p>Resumen del curso:</p>
+                <ul>
+                    <li>Instalación de Python.</li>
+                    <li>Primer programa.</li>
+                    <li>Variables, tipos de datos y operadores.</li>
+                    <li>Estructuras de control.</li>
+                    <li>Funciones.</li>
+                    <li>Listas y diccionarios.</li>
+                    <li>Manejo de archivos.</li>
+                </ul>
+                <h3>Próximos Pasos</h3>
+                <ul>
+                    <li>Practicar con ejercicios en <a href="https://www.hackerrank.com/domains/tutorials/10-days-of-python" target="_blank">HackerRank</a> o <a href="https://leetcode.com/" target="_blank">LeetCode</a>.</li>
+                    <li>Explorar bibliotecas populares como <code>numpy</code>, <code>pandas</code>, y <code>matplotlib</code>.</li>
+                    <li>Continuar con cursos más avanzados en <a href="https://www.coursera.org/learn/python-data-analysis" target="_blank">Coursera</a> o <a href="https://www.udacity.com/course/intro-to-data-science--ud359" target="_blank">Udacity</a>.</li>
+                </ul>
             </div>
         </div>
     </div>
